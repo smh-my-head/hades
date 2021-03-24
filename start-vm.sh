@@ -19,6 +19,9 @@
 # See https://wiki.archlinux.org/index.php/QEMU
 # and https://serverfault.com/questions/727347/solidworks-activation-license-mode-is-not-supported-in-this-virtual-environment
 
+# get directory of this file to use for other required files
+SCRIPT_DIR=$(dirname "$0")
+
 # Trying to comment in something like this is seriously funky, just accept it
 
 /usr/bin/qemu-system-x86_64                                                   \
@@ -40,11 +43,11 @@
 	                                                                          \
 	`# If you change the image name, that's sw-minimal.qcow2 here. virtio is `\
 	`# required to avoid detection (and it's faster!)`                        \
-	-drive file=sw-minimal.qcow2,format=qcow2,if=virtio,cache=none            \
+	-drive file=$SCRIPT_DIR/sw-minimal.qcow2,format=qcow2,if=virtio,cache=none\
 	                                                                          \
 	`# These are required for EFI`                                            \
-	-drive if=pflash,format=raw,readonly,file=OVMF_CODE.fd                    \
-	-drive if=pflash,format=qcow2,file=OVMF_VARS.qcow2                        \
+	-drive if=pflash,format=raw,readonly,file=$SCRIPT_DIR/OVMF_CODE.fd        \
+	-drive if=pflash,format=qcow2,file=$SCRIPT_DIR/OVMF_VARS.qcow2            \
 	                                                                          \
 	`# Add root directory of host as network drive at \\10.0.2.4\qemu`        \
 	-net nic                                                                  \
