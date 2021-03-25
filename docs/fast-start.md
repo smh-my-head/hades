@@ -3,7 +3,7 @@
 ## Setup
 
 1. Start the vm and open SolidWorks
-2. On the host, open the qemu monitor with `nc -U /tmp/vm_monitor.socket`
+2. On the host, open the qemu monitor with `util/qemu_monitor.sh`
 3. Enter `savevm solidworks` in the qemu monitor. This will save a snapshot
 with the name `solidworks`
 

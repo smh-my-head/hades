@@ -43,15 +43,15 @@ SCRIPT_DIR=$(dirname "$0")
 	                                                                          \
 	`# If you change the image name, that's sw-minimal.qcow2 here. virtio is `\
 	`# required to avoid detection (and it's faster!)`                        \
-	-drive file=$SCRIPT_DIR/sw-minimal.qcow2,format=qcow2,if=virtio,cache=none\
+	-drive file=$SCRIPT_DIR/run/sw-minimal.qcow2,format=qcow2,if=virtio,cache=none \
 	                                                                          \
 	`# These are required for EFI`                                            \
-	-drive if=pflash,format=raw,readonly,file=$SCRIPT_DIR/OVMF_CODE.fd        \
-	-drive if=pflash,format=qcow2,file=$SCRIPT_DIR/OVMF_VARS.qcow2            \
+	-drive if=pflash,format=raw,readonly,file=$SCRIPT_DIR/run/OVMF_CODE.fd    \
+	-drive if=pflash,format=qcow2,file=$SCRIPT_DIR/run/OVMF_VARS.qcow2        \
 	                                                                          \
 	`# Add root directory of host as network drive at \\10.0.2.4\qemu`        \
-	-net nic                                                                  \
-	-net user,smb=$HOME                                                       \
+	`# and port forward ssh port to 6969`                                     \
+	-net nic -net user,smb=$HOME,hostfwd=tcp:127.0.0.1:6969-:22               \
 	                                                                          \
 	`# Start a vm monitor to communicate over`                                \
 	-monitor unix:/tmp/vm_monitor.socket,server,nowait                        \
