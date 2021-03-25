@@ -16,8 +16,19 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+# copy modifiable into run
+if [ -d run ]; then
+	echo "run/ already exists, please remove it before running this"
+fi
+
+mkdir run; cd run
+cp ../OVMF_* run
+ln -s ../start-vm.sh
+
 # Create image
 qemu-img create -f qcow2 sw-minimal.qcow2 64G
 
 # Create dummy image for virtio
 qemu-img create -f qcow2 dummy.qcow2 1G
+
+

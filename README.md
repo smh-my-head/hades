@@ -8,15 +8,14 @@ Tested on Windows 10 20H2 v2 with SolidWorks 2018 SP3
 
 Note: If you know me or @henryefranks personally and have licenses for all of
 this software, drop one of us a message and we can pass on either a minimal
-working image (9.9GB), or all the proprietary files necessary (20GB). Then have
-a look at [docs/fast-start.md](docs/fast-start.md) to set yourself up for
-starting SolidWorks quickly.
+working image (9.9GB, all credit to @henryefranks), or all the proprietary
+files necessary (20GB). Then have a look at
+[docs/fast-start.md](docs/fast-start.md) to set yourself up for starting
+SolidWorks quickly.
 
 ## Prerequisites
 
 #### On the host (Linux)
-
-Note: The ISOs should be placed in this directory.
 
 - QEMU (should be available in your package manager)
 - a SPICE viewer (e.g. virt-viewer).
@@ -35,8 +34,9 @@ Note: The ISOs should be placed in this directory.
 
 ## Setup
 
-1. Create a new VM image with `./setup.sh`. This will also create a dummy image
-   which will be needed later.
+1. Set things up with `./setup.sh`. This will create a new image and put all
+   the necessary modifiable files in `run` (to keep the git working tree
+   clean). It will also create a dummy image which can be deleted later.
 
 2. Install Windows on the VM with `./first-run.sh`. You may need to edit
    `./first-run.sh` to point to your ISOs, it should be obvious how to do this
@@ -58,9 +58,9 @@ Note: The ISOs should be placed in this directory.
    [here](https://www.spice-space.org/download.html) (navigate to
    *Guest->Windows Binaries*)
 
-5. Shutdown the VM and delete the dummy image `dummy.qcow2`
+5. Shutdown the VM and delete the dummy image `run/dummy.qcow2`
 
-6. Start the VM again with `./start-vm.sh`. This is how you
+6. Start the VM again with `start-vm.sh`. This is how you
    can start the VM from now on. You may want to edit `start-vm.sh` to change
    the core count and memory allocation, along with any other tweaks.
 
@@ -77,9 +77,8 @@ Note: The ISOs should be placed in this directory.
 
 ## Suggestions
 
-See [this list](docs/suggested-tweaks.md) of suggested tweaks for using Windows
-in a VM, and [this procedure](docs/minify.md) to shrink and compress your
-image.
+See the files in `docs` for ways to make the vm even better (including
+minifying, skipping some of the boot process, and other tweaks)
 
 - See [this ArchWiki page](https://wiki.archlinux.org/index.php/QEMU) for
   advanced options, and [this ArchWiki
