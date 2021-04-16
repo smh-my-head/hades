@@ -26,7 +26,7 @@ SCRIPT_DIR=$(dirname "$0")
 
 /usr/bin/qemu-system-x86_64                                                   \
 	                                                                          \
-	-name sw-minimal,debug-threads=on                                         \
+	-name hades,debug-threads=on                                              \
 	                                                                          \
 	`# You may want to change the next two options, `                         \
 	`# they relate to resource allocation`                                    \
@@ -36,14 +36,14 @@ SCRIPT_DIR=$(dirname "$0")
 	`# Enable KVM for better virtualization`                                  \
 	-enable-kvm                                                               \
 	                                                                          \
-	`# These options are required for avoiding VM detection. In particular, ` \
+	`# These options are required for avoiding VM detection. In particular,`  \
 	`# kvm=off disables the cpu virtualization leaf (not KVM!). `             \
 	`# See 'qemu -cpu help' `                                                 \
 	-cpu host,hv_relaxed,hv_spinlocks=0x1fff,hv_vapic,hv_time,kvm=off,hv_vendor_id="whatever" \
 	                                                                          \
-	`# If you change the image name, that's sw-minimal.qcow2 here. virtio is `\
+	`# If you change the image name, that's hades.qcow2 here. virtio is`      \
 	`# required to avoid detection (and it's faster!)`                        \
-	-drive file=$SCRIPT_DIR/run/sw-minimal.qcow2,format=qcow2,if=virtio,cache=none \
+	-drive file=$SCRIPT_DIR/run/hades.qcow2,format=qcow2,if=virtio,cache=none \
 	                                                                          \
 	`# These are required for EFI`                                            \
 	-drive if=pflash,format=raw,readonly,file=$SCRIPT_DIR/run/OVMF_CODE.fd    \
@@ -59,7 +59,7 @@ SCRIPT_DIR=$(dirname "$0")
 	`# Spice`                                                                 \
 	-vga qxl                                                                  \
 	-device virtio-serial-pci                                                 \
-	`# You may want to change this unix socket to a network socket, `         \
+	`# You may want to change this unix socket to a network socket,`          \
 	`# see the ArchWiki link at the top`                                      \
 	-spice unix,addr=/tmp/vm_spice.socket,disable-ticketing                   \
 	-device virtserialport,chardev=spicechannel0,name=com.redhat.spice.0      \

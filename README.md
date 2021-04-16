@@ -1,4 +1,6 @@
-# Minimal Windows VM for SolidWorks
+# Hades
+Hell itself (aka a minimal Windows vm). Designed for use with
+[Charon](https://github.com/smh-my-head/charon)
 
 Documentation: [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
 
@@ -6,8 +8,8 @@ Code:          [![CC BY-SA 4.0][gplv3-shield]][gplv3]
 
 Tested on Windows 10 20H2 v2 with SolidWorks 2018 SP3
 
-Note: If you know me or @henryefranks personally and have licenses for all of
-this software, drop one of us a message and we can pass on either a minimal
+Note: If you know any of the contributors personally and have licenses for all
+of this software, drop one of us a message and we can pass on either a minimal
 working image (9.9GB, all credit to @henryefranks), or all the proprietary
 files necessary (20GB). Then have a look at
 [docs/fast-start.md](docs/fast-start.md) to set yourself up for starting
@@ -34,15 +36,13 @@ SolidWorks quickly.
 
 ## Setup
 
-1. Set things up with `./setup.sh`. This will create a new image and put all
-   the necessary modifiable files in `run` (to keep the git working tree
-   clean). It will also create a dummy image which can be deleted later.
+1. First, grab the necessary ISOs and place theme at `./src/Win10.iso` and
+   `./src/virtio-win.iso`
 
-2. Install Windows on the VM with `./first-run.sh`. You may need to edit
-   `./first-run.sh` to point to your ISOs, it should be obvious how to do this
-   when you look at the file. It may take a while to boot for the first time,
-   don't panic! If you get stuck in the VM, know that Ctrl-Alt-G releases
-   the mouse.
+2. Run `./setup.sh`. This will create a new VM image and begin the Windows
+   installation, putting all the modifiable files in `run` (to keep the git
+   working tree clean). It may take a while to boot for the first time, don't
+   panic! If you get stuck in the VM, know that Ctrl-Alt-G releases the mouse.
 
 3. Within Windows, install the virtio drivers by following these instructions
    from the ArchWiki (using to the dummy disk created in step 1)
@@ -58,10 +58,11 @@ SolidWorks quickly.
    [here](https://www.spice-space.org/download.html) (navigate to
    *Guest->Windows Binaries*)
 
-5. Shutdown the VM and delete the dummy image `run/dummy.qcow2`
+5. Shutdown the VM and delete the dummy image `run/dummy.qcow2`, which is no
+   longer needed
 
-6. Start the VM again with `start-vm.sh`. This is how you
-   can start the VM from now on. You may want to edit `start-vm.sh` to change
+6. Start the VM again with `hades.sh`. This is how you
+   can start the VM from now on. You may want to edit `hades.sh` to change
    the core count and memory allocation, along with any other tweaks.
 
 7. Within Windows, connect to a the host filesystem with a loopback network

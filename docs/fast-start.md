@@ -9,7 +9,7 @@ with the name `solidworks`
 
 ## Usage
 
-- Start the vm with `./start-vm.sh -loadvm solidworks`
+- Start the vm with `./hades.sh -loadvm solidworks`
 
 This file is licensed under a
 [Creative Commons Attribution-ShareAlike 4.0 International License][cc-by-sa].
