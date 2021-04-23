@@ -7,4 +7,11 @@
 4. From the host, run `ssh -p 6969 windows-username@localhost`. The user must
    have a password for this to work. You can use `passwd` to create one easily
 
+This file is licensed under a
+[Creative Commons Attribution-ShareAlike 4.0 International License][cc-by-sa].
+See [DOC_LICENSE](../DOC_LICENSE).
 
+[![CC BY-SA 4.0][cc-by-sa-image]][cc-by-sa]
+
+[cc-by-sa]: http://creativecommons.org/licenses/by-sa/4.0/
+[cc-by-sa-image]: https://licensebuttons.net/l/by-sa/4.0/88x31.png
