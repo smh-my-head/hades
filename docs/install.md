@@ -30,7 +30,7 @@
    panic! If you get stuck in the VM, know that Ctrl-Alt-G releases the mouse.
 
 3. Within Windows, install the virtio drivers by following these instructions
-   from the ArchWiki (using to the dummy disk created in step 1)
+   from the ArchWiki
 
 > Windows will detect the fake disk and look for a suitable driver. If it
 > fails, go to Device Manager, locate the SCSI drive with an exclamation mark
@@ -43,8 +43,8 @@
    [here](https://www.spice-space.org/download.html) (navigate to
    *Guest->Windows Binaries*)
 
-5. Shutdown the VM and delete the dummy image `run/dummy.qcow2`, which is no
-   longer needed
+5. Shutdown the VM and delete the dummy image `run/dummy.qcow2`, which was
+   used to set up virtio and is no longer needed
 
 6. Start the VM again with `hades.sh`. This is how you
    can start the VM from now on. You may want to edit `hades.sh` to change
