@@ -1,4 +1,5 @@
 # Hades
+
 Hell itself (aka a minimal Windows vm). Designed for use with
 [Charon](https://github.com/smh-my-head/charon)
 
@@ -8,83 +9,23 @@ Code:          [![CC BY-SA 4.0][gplv3-shield]][gplv3]
 
 Tested on Windows 10 20H2 v2 with SolidWorks 2018 SP3
 
-Note: If you know any of the contributors personally and have licenses for all
-of this software, drop one of us a message and we can pass on either a minimal
-working image (9.9GB, all credit to @henryefranks), or all the proprietary
-files necessary (20GB). Then have a look at
-[docs/fast-start.md](docs/fast-start.md) to set yourself up for starting
-SolidWorks quickly.
+## Installation
 
-## Prerequisites
+If you know any of the contributors personally and have licenses for all of the
+required proprietary software, drop one of us a message and we can pass on
+working image (9.9GB, all credit to @henryefranks).
 
-#### On the host (Linux)
+Otherwise, have a look at [docs/install.md](docs/install.md) to set up the VM
+from scratch. If you are some sort of masochist and want to do it from scratch
+despite knowing the contributors, we can send you all the proprietary files
+necessary (20GB).
 
-- QEMU (should be available in your package manager)
-- a SPICE viewer (e.g. virt-viewer).
-- [Windows
-   ISO](https://www.microsoft.com/en-gb/software-download/windows10ISO),
-- [Virtio ISO](https://github.com/virtio-win/virtio-win-pkg-scripts)
+## Tweaks
 
-#### On the guest (Windows)
-
-- SPICE guest tools binary. Can be found
-  [here](https://www.spice-space.org/download.html) (navigate to
-  *Guest->Windows Binaries*)
-
-- SolidWorks installer (this can be downloaded on Linux, the Linux filesystem
-  will be mapped as a network drive later on)
-
-## Setup
-
-1. First, grab the necessary ISOs and place theme at `./src/Win10.iso` and
-   `./src/virtio-win.iso`
-
-2. Run `./setup.sh`. This will create a new VM image and begin the Windows
-   installation, putting all the modifiable files in `run` (to keep the git
-   working tree clean). It may take a while to boot for the first time, don't
-   panic! If you get stuck in the VM, know that Ctrl-Alt-G releases the mouse.
-
-3. Within Windows, install the virtio drivers by following these instructions
-   from the ArchWiki (using to the dummy disk created in step 1)
-
-> Windows will detect the fake disk and look for a suitable driver. If it
-> fails, go to Device Manager, locate the SCSI drive with an exclamation mark
-> icon (should be open), click Update driver and select the virtual CD-ROM. Do
-> not navigate to the driver folder within the CD-ROM, simply select the CD-ROM
-> drive and Windows will find the appropriate driver automatically (tested for
-> Windows 7 SP1).
-
-4. Within Windows, install the SPICE guest tools
-   [here](https://www.spice-space.org/download.html) (navigate to
-   *Guest->Windows Binaries*)
-
-5. Shutdown the VM and delete the dummy image `run/dummy.qcow2`, which is no
-   longer needed
-
-6. Start the VM again with `hades.sh`. This is how you
-   can start the VM from now on. You may want to edit `hades.sh` to change
-   the core count and memory allocation, along with any other tweaks.
-
-7. Within Windows, connect to a the host filesystem with a loopback network
-   device, by navigating in the file explorer to *This PC -> Computer -> Map
-   network drive* and entering `\\10.0.2.4\qemu` under *Folder:*
-
-8. Install SolidWorks as usual. (If you downloaded it on Linux, you can install
-   directly from the network drive)
-
-9. Optionally follow the instructions in
-   [docs/fast-start.md](docs/fast-start.md) to set yourself up for starting
-   SolidWorks quickly.
-
-## Suggestions
-
-See the files in `docs` for ways to make the vm even better (including
-minifying, skipping some of the boot process, and other tweaks)
-
-- See [this ArchWiki page](https://wiki.archlinux.org/index.php/QEMU) for
-  advanced options, and [this ArchWiki
-  page](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF) to
-  configure PCI passthrough and other performance tweaks.
+You may like to have a look through the other files in [docs/](docs/), which
+contain tweaks and features you may want to use. These are all implemented in
+the minimal image we can provide. Note that [docs/ssh.md](docs/ssh.md) is
+required for [Charon](https://github.com/smh-my-head/charon)
 
 ## A Note on SolidWorks Network Licences
 

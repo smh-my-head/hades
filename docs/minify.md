@@ -90,7 +90,6 @@ slower). To sparsify and compress the image, run
 To undo this change, you can use
 `qemu-img convert -O qcow2 img-compressed.qcow2 img.qcow2`.
 
-
 This file is licensed under a
 [Creative Commons Attribution-ShareAlike 4.0 International License][cc-by-sa].
 See [DOC_LICENSE](../DOC_LICENSE).
