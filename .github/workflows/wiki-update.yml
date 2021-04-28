@@ -1,0 +1,32 @@
+name: wiki-update
+on: [push]
+jobs:
+  wiki-update:
+    environment: mediawiki
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Clone this repository
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: |
+          sudo apt install pandoc libmediawiki-api-perl \
+              libdatetime-format-iso8601-perl liblwp-protocol-https-perl
+
+      - name: Install git-mediawiki and update wiki with latest changes
+        env:
+          mwpassword: ${{ secrets.MEDIAWIKI_PASSWORD }}
+        run: |
+          git clone https://github.com/Git-Mediawiki/Git-Mediawiki
+          sudo cp Git-Mediawiki/git-remote-mediawiki $(git --exec-path)
+          sudo chmod +x $(git --exec-path)/git-remote-mediawiki
+
+          export PERL5LIB=$(pwd)/Git-Mediawiki:$PERL5LIB
+          cd $GITHUB_WORKSPACE/wiki-export
+          ./setup.sh
+          ./update.sh
+          ls -al
+
+# vi: set sw=2 sts=2 tw=79 et :
