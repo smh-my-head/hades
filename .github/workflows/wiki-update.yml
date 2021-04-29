@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Install dependencies
         run: |
-          sudo apt install pandoc libmediawiki-api-perl \
+          sudo apt install pandoc ripgrep libmediawiki-api-perl \
               libdatetime-format-iso8601-perl liblwp-protocol-https-perl
 
       - name: Install git-mediawiki and update wiki with latest changes

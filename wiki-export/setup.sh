@@ -1,12 +1,9 @@
 #!/bin/sh -e
 # -e causes an exit on failure
 
-# e.g. fast-start.md -> Hades/fast-start
-pages="Hades $(ls ../docs | sed -n 's/\(.*\)\.md/Hades\/\1/p' | tr '\n' ' ')"
-
 if ! [ -d wiki.cusf.co.uk ]; then
 	# Only import the latest revision of relevant pages
-	git clone -c remote.origin.pages="$pages" \
+	git clone -c remote.origin.pages="Hades" \
 	          -c remote.origin.shallow=true \
 			  -c remote.origin.mwLogin='EllieClifford' \
 	          -c remote.origin.mwPassword="$mwpassword" \
