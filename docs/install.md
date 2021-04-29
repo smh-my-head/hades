@@ -71,8 +71,6 @@ minifying, skipping some of the boot process, and other tweaks)
   page](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF) to
   configure PCI passthrough and other performance tweaks.
 
-## License
-
 This file is licensed under a
 [Creative Commons Attribution-ShareAlike 4.0 International License][cc-by-sa].
 See [DOC_LICENSE](../DOC_LICENSE).

@@ -11,12 +11,17 @@ git pull --rebase
 # Convert to mediawiki
 # Prepend wiki-specific file
 
-markdown_tmpfile=$(mktemp)
-cat ../../README.md >> $markdown_tmpfile
-echo $markdown_tmpfile
+fileorder="install.md
+fast-start.md
+ssh.md
+minify.md
+windows-tweaks.md
+"
 
-map=""
-for f in $(ls ../../docs | grep '\.md'); do
+markdown_tmpfile=$(mktemp)
+
+map="" # filename|title
+for f in $fileorder; do
 	# get mapping of section names to file names
 	map="$map:$f|$(sed -n 's/^# *//p' ../../docs/$f | head -n1)"
 
@@ -35,7 +40,7 @@ See [DOC_LICENSE](../DOC_LICENSE).
 	../../docs/$f >> $markdown_tmpfile
 done
 
-# Replace links to other sections
+# Fix links to other sections
 
 map="$(echo $map | tr ':' '\n')"
 IFS="
@@ -43,7 +48,8 @@ IFS="
 for i in $map; do
 	# This is the most disgusting thing I have ever written
 	sed -i "$(echo "$i" | awk -F"|" \
-		'{print "s|\\[[^]]*](docs/"$1")|[[Hades#"$2"]]|g"}')" $markdown_tmpfile
+		'{print "s|\\[[^]]*](docs/"$1")|[[Hades#"$2"\\|"$2"]]|g"}')" \
+		$markdown_tmpfile
 done
 
 # Replace links to github

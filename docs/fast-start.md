@@ -1,4 +1,4 @@
-# Start SolidWorks more quickly
+# Start SolidWorks faster
 
 ## Setup
 

@@ -1,4 +1,4 @@
-# Procedure to Clean and Minify Windows Virtual Machines
+# Clean and Minify
 
 ## From Guest
 
