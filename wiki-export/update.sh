@@ -17,6 +17,7 @@ fast-start.md
 ssh.md
 minify.md
 windows-tweaks.md
+dracula.md
 "
 
 markdown_tmpfile=$(mktemp)
