@@ -1,0 +1,23 @@
+''This page was automatically generated from a GitHub Action Please do not edit it manually''
+
+Hades is a minimal Windows virtual machine designed for use with SolidWorks
+(although the documentation here is almost entirely applicable to other use
+cases). It is named after Hell itself, as that's what using Windows feels like
+(in [[User:EllieClifford|Ellie]]'s humble opinion).
+
+You are welcome to contribute [https://github.com/smh-my-head/hades here].
+
+If you have the correct licenses for all the software required for Hades (being
+a student at Cambridge is enough), drop [[User:EllieClifford|Ellie]] or
+[[User:HenryFranks|Henry]] a message and we can pass on a working image (10GB).
+Otherwise, have a look at docs/install.md to set up the VM from scratch. If you
+are some sort of masochist and want to do it from scratch "for fun", we can
+send you all the proprietary files necessary in one neat package (20GB).
+
+= A Note on SolidWorks Network Licences =
+
+Using this without a SolidWorks Network License contravenes the SolidWorks
+licensing. However, this procedure does successfully convince SolidWorks that
+it’s not in a VM. This is justifiable because there are artificial locks
+against using “unsupported” hypervisors, so you couldn’t do it without tricking
+SolidWorks even with the correct license.
