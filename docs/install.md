@@ -63,7 +63,7 @@
 
 ## Suggestions
 
-See the files in `docs` for ways to make the vm even better (including
+See the rest of the docs for ways to make the vm even better (including
 minifying, skipping some of the boot process, and other tweaks)
 
 - See [this ArchWiki page](https://wiki.archlinux.org/index.php/QEMU) for

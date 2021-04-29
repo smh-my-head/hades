@@ -11,7 +11,8 @@ git pull --rebase
 # Convert to mediawiki
 # Prepend wiki-specific file
 
-fileorder="install.md
+fileorder="install-with-image.md
+install.md
 fast-start.md
 ssh.md
 minify.md
