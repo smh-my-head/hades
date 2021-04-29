@@ -4,6 +4,7 @@
 
 **On the host (Linux)**
 
+- [Hades](https://github.com/smh-my-head/hades)
 - QEMU (should be available in your package manager)
 - a SPICE viewer (e.g. virt-viewer).
 - [Windows
