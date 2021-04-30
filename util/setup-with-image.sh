@@ -53,7 +53,7 @@ if [ $# -ne 1 ]; then
 fi
 
 if echo "$1" | egrep -vq '\.qcow2$'; then
-	echo "$1 does not seem to be a valid qcow2 image"
+	echo -e "\\e[31m$1 does not seem to be a valid qcow2 image, aborting\\e[0m"
 	exit 1
 fi
 
@@ -62,7 +62,8 @@ HADES_DIR=$(dirname $(dirname $(realpath "$0")))
 
 # copy modifiable into run
 if [ -d $HADES_DIR/run ]; then
-	echo "$HADES_DIR/run/ already exists, please remove it before running this"
+	echo -ne "\\e[31m$HADES_DIR/run/ already exists, please "
+	echo -e  "remove it before running this\\e[0m"
 	exit 1
 fi
 
@@ -72,7 +73,8 @@ cp $HADES_DIR/OVMF_* $HADES_DIR/run/
 if [ "$move" = "true" ]; then
 	mv $1 $HADES_DIR/run/hades.qcow2
 else
-	echo "====> Decompressing provided image, please wait"
+	echo '====> Decompressing provided image, please wait'
 	qemu-img convert -O qcow2 $1 $HADES_DIR/run/hades.qcow2
 fi
+echo -e '\e[32m====> Setup complete\e[0m'
 
