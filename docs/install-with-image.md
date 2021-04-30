@@ -1,7 +1,7 @@
 # Install Hades with our image
 
-First install QEMU, a SPICE viewer, and samba. On Arch Linux, that would look
-something like this:
+First install QEMU, a SPICE viewer, and samba. For example on Arch Linux, that
+would look something like this:
 
 ```bash
 sudo pacman -S qemu virt-viewer samba
