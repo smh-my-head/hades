@@ -20,7 +20,14 @@
 # and https://serverfault.com/questions/727347/solidworks-activation-license-mode-is-not-supported-in-this-virtual-environment
 
 # get directory of this file to use for other required files
-SCRIPT_DIR=$(dirname "$0")
+SCRIPT_DIR="$(dirname "$(realpath "$0")")"
+
+# check if we are installed fully, this will change the paths used
+if [ "$SCRIPT_DIR" = "/usr/local/bin" ]; then
+	BASE_PATH="/var/local/hades"
+else
+	BASE_PATH="$(realpath "$SCRIPT_DIR/..")"
+fi
 
 # Trying to comment in something like this is seriously funky, just accept it
 
@@ -43,11 +50,11 @@ SCRIPT_DIR=$(dirname "$0")
 	                                                                          \
 	`# If you change the image name, that's hades.qcow2 here. virtio is`      \
 	`# required to avoid detection (and it's faster!)`                        \
-	-drive file=$SCRIPT_DIR/run/hades.qcow2,format=qcow2,if=virtio,cache=none \
+	-drive file=$BASE_PATH/hades.qcow2,format=qcow2,if=virtio,cache=none      \
 	                                                                          \
 	`# These are required for EFI`                                            \
-	-drive if=pflash,format=raw,readonly,file=$SCRIPT_DIR/run/OVMF_CODE.fd    \
-	-drive if=pflash,format=qcow2,file=$SCRIPT_DIR/run/OVMF_VARS.qcow2        \
+	-drive if=pflash,format=raw,readonly,file=$BASE_PATH/OVMF_CODE.fd         \
+	-drive if=pflash,format=qcow2,file=$BASE_PATH/OVMF_VARS.qcow2             \
 	                                                                          \
 	`# Add root directory of host as network drive at \\10.0.2.4\qemu`        \
 	`# and port forward ssh port to 6969`                                     \

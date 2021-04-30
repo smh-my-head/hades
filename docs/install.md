@@ -25,7 +25,7 @@
 1. First, grab the necessary ISOs and place theme at `./src/Win10.iso` and
    `./src/virtio-win.iso`
 
-2. Run `./setup.sh`. This will create a new VM image and begin the Windows
+2. Run `make`. This will create a new VM image and begin the Windows
    installation, putting all the modifiable files in `run` (to keep the git
    working tree clean). It may take a while to boot for the first time, don't
    panic! If you get stuck in the VM, know that Ctrl-Alt-G releases the mouse.
@@ -44,21 +44,21 @@
    [here](https://www.spice-space.org/download.html) (navigate to
    *Guest->Windows Binaries*)
 
-5. Shutdown the VM and delete the dummy image `run/dummy.qcow2`, which was
-   used to set up virtio and is no longer needed
+5. Shutdown the VM and optionally edit `hades.sh` to change the core count and
+   memory allocation to your preference.
 
-6. Start the VM again with `hades.sh`. This is how you
-   can start the VM from now on. You may want to edit `hades.sh` to change
-   the core count and memory allocation, along with any other tweaks.
+7. Run `sudo make install` to install Hades (or you can just run it with
+   `hades.sh`)
 
-7. Within Windows, connect to a the host filesystem with a loopback network
-   device, by navigating in the file explorer to *This PC -> Computer -> Map
-   network drive* and entering `\\10.0.2.4\qemu` under *Folder:*
+8. Start Hades again, and within Windows, connect to a the host filesystem with
+   a loopback network device, by navigating in the file explorer to *This PC ->
+   Computer -> Map network drive* and entering `\\10.0.2.4\qemu` under
+   *Folder:*
 
-8. Install SolidWorks as usual. (If you downloaded it on Linux, you can install
+9. Install SolidWorks as usual. (If you downloaded it on Linux, you can install
    directly from the network drive)
 
-9. Optionally follow the instructions in
+10. Optionally follow the instructions in
    [docs/fast-start.md](docs/fast-start.md) to set yourself up for starting
    SolidWorks quickly.
 
