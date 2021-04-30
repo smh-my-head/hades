@@ -21,7 +21,7 @@ the proprietary source files
 = A Note on SolidWorks Network Licences =
 
 Using this without a SolidWorks Network License contravenes the SolidWorks
-licensing. However, this procedure does successfully convince SolidWorks that
+licensing. However, this procedure ''does'' successfully convince SolidWorks that
 it’s not in a VM. This is justifiable because there are artificial locks
-against using “unsupported” hypervisors, so you couldn’t do it without tricking
-SolidWorks even with the correct license.
+against using "unsupported" hypervisors, so you couldn’t do it without tricking
+SolidWorks even with the correct license. Please don't sue us.
