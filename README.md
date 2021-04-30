@@ -1,6 +1,6 @@
 # Hades
 
-Hell itself (aka a minimal Windows vm). Designed for use with
+Hell itself (aka a minimal Windows virtual machine). Designed for use with
 [Charon](https://github.com/smh-my-head/charon)
 
 Documentation: [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
@@ -11,21 +11,13 @@ Tested on Windows 10 20H2 v2 with SolidWorks 2018 SP3
 
 ## Installation
 
-If you know any of the contributors personally and have licenses for all of the
-required proprietary software, drop one of us a message and we can pass on
-working image (9.9GB, all credit to @henryefranks).
+Clone this repository and then follow the instructions on the [CUSF
+Wiki](https://wiki.cusf.co.uk/Hades)
 
-Otherwise, have a look at [docs/install.md](docs/install.md) to set up the VM
-from scratch. If you are some sort of masochist and want to do it from scratch
-despite knowing the contributors, we can send you all the proprietary files
-necessary (20GB).
+## Contributing
 
-## Tweaks
-
-You may like to have a look through the other files in [docs/](docs/), which
-contain tweaks and features you may want to use. These are all implemented in
-the minimal image we can provide. Note that [docs/ssh.md](docs/ssh.md) is
-required for [Charon](https://github.com/smh-my-head/charon)
+Anyone is welcome to contribute. In particular, if you encounter any problems
+or have suggestions of further tweaks, please open an issue or pull request.
 
 ## A Note on SolidWorks Network Licences
 
@@ -33,7 +25,7 @@ Using this without a SolidWorks Network License contravenes the SolidWorks
 licensing. However, this procedure *does* successfully convince SolidWorks
 that it's not in a VM. This is justifiable because there are artificial locks
 against using "unsupported" hypervisors, so you couldn't do it without
-tricking SolidWorks even with the correct license.
+tricking SolidWorks even with the correct license. Please don't sue us.
 
 ## License
 
