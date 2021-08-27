@@ -36,6 +36,7 @@ ssh.md
 minify.md
 windows-tweaks.md
 dracula.md
+custom-boot-logo.md
 "
 
 markdown_tmpfile=$(mktemp)
