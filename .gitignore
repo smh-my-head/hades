@@ -1,4 +1,5 @@
 /src
 /run
-/backups
+/prerelease
+/releases
 /tests
