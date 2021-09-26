@@ -27,11 +27,13 @@
 
 2. Run `make`. This will create a new VM image and begin the Windows
    installation, putting all the modifiable files in `run` (to keep the git
-   working tree clean). It may take a while to boot for the first time, don't
-   panic! If you get stuck in the VM, know that Ctrl-Alt-G releases the mouse.
+   working tree clean). You may need to press a key when it says *"Press any
+   key to boot from CD/DVD*". It may take a while to boot for the first time,
+   don't panic! If you get stuck in the VM, note that Ctrl-Alt-G releases the
+   mouse.
 
-3. Within Windows, install the virtio drivers by following these instructions
-   from the ArchWiki
+3. Within the Windows VM, install the virtio drivers by following these
+   instructions from the ArchWiki
 
 > Windows will detect the fake disk and look for a suitable driver. If it
 > fails, go to Device Manager, locate the SCSI drive with an exclamation mark
@@ -40,7 +42,7 @@
 > drive and Windows will find the appropriate driver automatically (tested for
 > Windows 7 SP1).
 
-4. Within Windows, install the SPICE guest tools
+4. Within the Windows VM, install the SPICE guest tools
    [here](https://www.spice-space.org/download.html) (navigate to
    *Guest->Windows Binaries*)
 
@@ -53,7 +55,8 @@
 8. Start Hades again, and within Windows, connect to a the host filesystem with
    a loopback network device, by navigating in the file explorer to *This PC ->
    Computer -> Map network drive* and entering `\\10.0.2.4\qemu` under
-   *Folder:*
+   *Folder:*. Then map the same device as an administrator by executing `net
+   use z: \\10.0.2.4\qemu /persistent:yes` in an administrator command prompt.
 
 9. Install SolidWorks as usual. (If you downloaded it on Linux, you can install
    directly from the network drive)

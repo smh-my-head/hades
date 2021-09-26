@@ -17,4 +17,4 @@
 # License along with Hades. If not, see <https://www.gnu.org/licenses/>.
 
 # This is not copyrightable lmfao -- TC
-nc -U /tmp/vm_monitor.socket
+nc -U /tmp/hades_monitor.socket

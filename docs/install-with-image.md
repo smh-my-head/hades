@@ -1,5 +1,22 @@
 # Install Hades with our image
 
+The latest image (Revision 2) is built with:
+
+- Solidworks 2020 SP03
+
+- Windows 10 21H1 English International
+
+- Virtio 0.1.208
+
+{{Warning|These links and filenames relate to Revision 1, which has SolidWorks
+2018 installed. They will be updated when we finalise Revision 2.}}
+
+{{Warning|This image is accessible over SSH from the host, with a publicly
+available key used by [[Charon]]. The key can also be found in `keys/`. Make
+sure that this is not accessible to anyone else on the network by making sure
+that the output of `nmap $(hostname -i)` does not show port 2200 as
+open.}}
+
 1. Install QEMU, a SPICE viewer, and samba. As an example, on Arch Linux,
 that would look something like this:
 
@@ -32,6 +49,6 @@ sudo make install
 ```
 
 Then just run `hades` from a terminal (or in the normal way you would run
-programs) to start Hades. The password is <code>a</code>. You may also want to
-see [docs/fast-start.md](docs/fast-start.md) to make starting SolidWorks
-quicker (note that this will decrease portability)
+programs) to start Hades. You may also want to see
+[docs/fast-start.md](docs/fast-start.md) to make starting SolidWorks quicker
+(note that this will decrease portability)

@@ -35,6 +35,45 @@ To use the tool, just search for 'Disk Cleanup'. The program should be very
 easy to use from the GUI, and should be run for both user and system files.
 
 
+### Cleanup the WinSxS Folder
+
+Run `dism /Online /Cleanup-Image /StartComponentCleanup /ResetBase` and then
+`dism /Online /Cleanup-Image /SPSuperseded` from an
+administrator command prompt.
+
+
+### Clear the SoftwareDistribution folder
+
+This folder is safe to remove. Windows will try to redownload it, but of
+course it can't if you shrink the drive afterwards. Run the following from an
+administrator command prompt:
+
+```
+net stop wuauserv
+net stop bits
+```
+
+then remove the folder (if you start the services again windows will
+re-download it)
+
+
+### Remove things from WindowsApps
+
+Go ham deleting things in `C:\Program Files\WindowsApps`. The easiest way is to
+mount the image in Linux first:
+
+```
+/path/to/util/qemu_mnt.sh /path/to/img.qcow2
+sudo mount /dev/nbd0p3 /path/to/mount/point
+# delete the stuff
+sudo umount /path/to/mount/point
+/path/to/utiu/qemu_umnt.sh
+```
+
+You may then need to go into *Settings -> Apps and Features -> [Broken App] ->
+Advanced options -> Reset* for each one.
+
+
 ### Defragment the Virtual Disk
 
 Windows has a built-in tool for defragging the disk,
