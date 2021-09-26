@@ -4,8 +4,13 @@
    [here](https://www.msys2.org/)
 2. Inside admin msys2, run `//10.0.2.4/qemu/path/to/util/msys2-setup.sh`
 3. Open port 22 on the guest
-4. From the host, run `ssh -p 6969 windows-username@localhost`. The user must
+4. From the host, run `ssh -p 2200 windows-username@localhost`. The user must
    have a password for this to work. You can use `passwd` to create one easily
+5. Lots of things can go wrong. See
+   [here](https://gist.github.com/samhocevar/00eec26d9e9988d080ac) for common
+   problems etc. It is possible to use ssh keys, but you will have to generate
+   /etc/passwd and possibly /etc/group with `mkpasswd -l > /etc/passwd &&
+   mkgroup -l > /etc/group`
 
 This file is licensed under a
 [Creative Commons Attribution-ShareAlike 4.0 International License][cc-by-sa].

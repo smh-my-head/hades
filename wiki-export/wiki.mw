@@ -4,19 +4,22 @@
 
 Hades is a minimal Windows virtual machine designed for using SolidWorks on
 Linux. It is named after Hell itself, as that's what using Windows feels like
-(in [[User:EllieClifford|Ellie]]'s humble opinion).
+(in [[User:EllieClifford|Ellie]]'s humble opinion). Hades has been successfully
+built for both SolidWorks 2018 SP03 and SolidWorks 2020 SP03.
+
+{{Info|We are currently in the process of finalising the new image for
+SolidWorks 2020.}}
 
 If you have all of the licenses required for Hades (being a student at
 Cambridge is enough), drop [[User:EllieClifford|Ellie]] or
 [[User:HenryFranks|Henry]] a message and we will authorize you to access the
-prebuilt image (10GB). Then see [[Hades#Install Hades with our image|Install
-Hades with our image]]. The rest of this page is dedicated to installing and
+prebuilt image. Then see [[Hades#Install Hades with our image|Install Hades
+with our image]]. The rest of this page is dedicated to installing and
 optimizing Hades from scratch.
 
 If you are some sort of masochist (read: Gentoo user) and want to do it from
-scratch "for fun" despite having access to the prebuilt image, you can get all
-the proprietary source files
-[https://files.cusf.co.uk/hades-proprietary-src.tar.gz here] (20GB).
+scratch "for fun" despite having access to the prebuilt image, we can authorize
+you to access the proprietary source files too.
 
 = A Note on SolidWorks Network Licences =
 

@@ -26,7 +26,7 @@ SCRIPT_DIR="$(dirname "$(realpath "$0")")"
 if [ "$SCRIPT_DIR" = "/usr/local/bin" ]; then
 	BASE_PATH="/var/local/hades"
 else
-	BASE_PATH="$(realpath "$SCRIPT_DIR/..")"
+	BASE_PATH="$(realpath "$SCRIPT_DIR/run")"
 fi
 
 # Trying to comment in something like this is seriously funky, just accept it
@@ -53,22 +53,22 @@ fi
 	-drive file=$BASE_PATH/hades.qcow2,format=qcow2,if=virtio,cache=none      \
 	                                                                          \
 	`# These are required for EFI`                                            \
-	-drive if=pflash,format=raw,readonly,file=$BASE_PATH/OVMF_CODE.fd         \
+	-drive if=pflash,format=raw,readonly=on,file=$BASE_PATH/OVMF_CODE.fd      \
 	-drive if=pflash,format=qcow2,file=$BASE_PATH/OVMF_VARS.qcow2             \
 	                                                                          \
 	`# Add root directory of host as network drive at \\10.0.2.4\qemu`        \
-	`# and port forward ssh port to 6969`                                     \
-	-net nic -net user,smb=$HOME,hostfwd=tcp:127.0.0.1:6969-:22               \
+	`# and port forward ssh port to 2200`                                     \
+	-net nic -net user,smb=$HOME,hostfwd=tcp:127.0.0.1:2200-:22               \
 	                                                                          \
 	`# Start a vm monitor to communicate over`                                \
-	-monitor unix:/tmp/vm_monitor.socket,server,nowait                        \
+	-monitor unix:/tmp/hades_monitor.socket,server,nowait                     \
 	                                                                          \
 	`# Spice`                                                                 \
 	-vga qxl                                                                  \
 	-device virtio-serial-pci                                                 \
 	`# You may want to change this unix socket to a network socket,`          \
 	`# see the ArchWiki link at the top`                                      \
-	-spice unix,addr=/tmp/vm_spice.socket,disable-ticketing                   \
+	-spice unix=on,addr=/tmp/hades_spice.socket,disable-ticketing=on          \
 	-device virtserialport,chardev=spicechannel0,name=com.redhat.spice.0      \
 	-chardev spicevmc,id=spicechannel0,name=vdagent                           \
 	`# Automatically open a spice viewer. Alternatively you can connect to`   \
