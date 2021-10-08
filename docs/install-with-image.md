@@ -8,9 +8,6 @@ The latest image (Revision 2) is built with:
 
 - Virtio 0.1.208
 
-{{Warning|These links and filenames relate to Revision 1, which has SolidWorks
-2018 installed. They will be updated when we finalise Revision 2.}}
-
 {{Warning|This image is accessible over SSH from the host, with a publicly
 available key used by [[Charon]]. The key can also be found in `keys/`. Make
 sure that this is not accessible to anyone else on the network by making sure
@@ -24,19 +21,18 @@ that would look something like this:
 sudo pacman -S qemu virt-viewer samba
 ```
 
-2. Download the image [here](https://files.cusf.co.uk/hades-rev1.qcow2). If you
-get a permission error, you will need to message [[User:EllieClifford|Ellie]] or
-[[User:HenryFranks|Henry]] to get access.
+2. Download the image [here](https://files.cusf.co.uk/hades-v2.qcow2). The file
+is currently accessible to Cambridge students only.
 
 3. (Optionally) verify the integrity and signature of the files by downloading
-[the checksum](https://files.cusf.co.uk/hades-rev1.qcow2.sha256) and
-[the signature](https://files.cusf.co.uk/hades-rev1.qcow2.asc) and verifying
+[the checksum](https://files.cusf.co.uk/hades-v2.qcow2.sha256) and
+[the signature](https://files.cusf.co.uk/hades-v2.qcow2.asc) and verifying
 them:
 
 ```bash
 gpg --import <(curl -L pgp.cusf.co.uk/ellie-clifford.asc) # Import Ellie's public key
-gpg --verify hades-rev1.qcow2.asc hades-rev1.qcow2 # Verify that Ellie signed the image
-sha256sum -c hades-rev1.qcow2.sha256 # Verify the integrity of the image
+gpg --verify hades-v2.qcow2.asc hades-v2.qcow2 # Verify that Ellie signed the image
+sha256sum -c hades-v2.qcow2.sha256 # Verify the integrity of the image
 ```
 
 4. Clone the Hades repository and install Hades with the image:
@@ -44,7 +40,7 @@ sha256sum -c hades-rev1.qcow2.sha256 # Verify the integrity of the image
 ```bash
 git clone https://github.com/smh-my-head/hades
 cd hades
-make with-image image=path/to/hades-rev1.qcow2
+make with-image image=path/to/hades-v2.qcow2
 sudo make install
 ```
 

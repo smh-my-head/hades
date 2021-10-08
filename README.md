@@ -7,7 +7,8 @@ Documentation: [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
 
 Code:          [![CC BY-SA 4.0][gplv3-shield]][gplv3]
 
-Tested on Windows 10 20H2 v2 with SolidWorks 2018 SP3
+Tested on Windows 10 20H2 v2 with SolidWorks 2018 SP3 (Revision 1) and Windows
+10 21H1 with Solidworks 2020 SP3 (Revision 2)
 
 ## Installation
 
