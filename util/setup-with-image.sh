@@ -74,7 +74,7 @@ if [ "$move" = "true" ]; then
 	mv $1 $HADES_DIR/run/hades.qcow2
 else
 	echo '====> Decompressing provided image, please wait'
-	qemu-img convert -O qcow2 $1 $HADES_DIR/run/hades.qcow2
+	qemu-img convert -pO qcow2 $1 $HADES_DIR/run/hades.qcow2
 fi
 echo -e '\e[32m====> Setup complete\e[0m'
 

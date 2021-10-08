@@ -118,6 +118,20 @@ partition!), use `qemu-img resize --shrink img.qcow2 SIZE` (see `man qemu-img`
 for SIZE).
 
 
+### Remove recovery partition
+
+In powershell or command prompt (as administrator):
+
+```
+diskpart
+list disk
+select disk #
+list partition
+select partition #
+delete partition override
+```
+
+
 ### Sparsify and Compress VM Image
 
 An important step in minimising image size is to sparsify it. Optionally, you

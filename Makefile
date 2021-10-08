@@ -24,6 +24,14 @@ install:
 	@echo -n 'You may now delete this folder if you wish to (but if you want '
 	@echo    'to set up fast-starting SolidWorks, do that first)'
 
+uninstall:
+	rm -f /usr/local/bin/hades
+	rm -f /usr/local/bin/hades-monitor
+	rm -rf /var/local/hades
+
+clean:
+	rm -rf run/
+
 solidworks:
 	echo "#!/bin/sh" > /usr/local/bin/solidworks
 	echo "hades -loadvm solidworks" > /usr/local/bin/solidworks
