@@ -21,13 +21,13 @@ that would look something like this:
 sudo pacman -S qemu virt-viewer samba
 ```
 
-2. Download the image [here](https://files.cusf.co.uk/hades-v2.qcow2). The file
-is currently accessible to Cambridge students only.
+2. Download the image [here](https://files.cusf.co.uk/hades-v2/hades-v2.qcow2).
+The file is currently accessible to Cambridge students only.
 
 3. (Optionally) verify the integrity and signature of the files by downloading
-[the checksum](https://files.cusf.co.uk/hades-v2.qcow2.sha256) and
-[the signature](https://files.cusf.co.uk/hades-v2.qcow2.asc) and verifying
-them:
+[the checksum](https://files.cusf.co.uk/hades-v2/hades-v2.qcow2.sha256) and
+[the signature](https://files.cusf.co.uk/hades-v2/hades-v2.qcow2.asc) and
+verifying them:
 
 ```bash
 gpg --import <(curl -L pgp.cusf.co.uk/ellie-clifford.asc) # Import Ellie's public key
